@@ -17,3 +17,4 @@ webshop/user_session_logs/
 webshop/baseline_models/data/
 webshop/baseline_models/ckpts/
 
+.ipynb_checkpoints/*
