@@ -1,0 +1,264 @@
+Products loaded.
+Keys cleaned.
+Attributes loaded.
+Loaded 6910 goals.
+=====================Observation==============================
+WebShop [SEP] Instruction: [SEP] Find me slim fit, machine wash women's jumpsuits, rompers &
+overalls with short sleeve, high waist, polyester spandex for daily wear with color: green 
+stripe, and size: large, and price lower than 50.00 dollars [SEP] Search
+=====================Available Actions==============================
+Available actions:
+{'has_search_bar': True, 'clickables': ['search']}
+Taking action "search[shoes]" -> Reward = 0.0
+=====================Observation==============================
+Instruction: [SEP] Find me slim fit, machine wash women's jumpsuits, rompers & overalls with
+short sleeve, high waist, polyester spandex for daily wear with color: green stripe, and 
+size: large, and price lower than 50.00 dollars [SEP] Back to Search [SEP] Page 1 (Total 
+results: 39) [SEP] Next > [SEP] B094RBNS2K [SEP] Mens Running Tennis Blade Shoes Lightweight
+Casual Walking Sneakers Mesh Breathable Sport Sneakers Sheet Shoes [SEP] $27.0 [SEP] 
+B09HH6P68W [SEP] MAPOLO Hand Drawn Christmas Elements Collection Men's Boys Casual Walking 
+Shoes Sneaker Lightweight Stylish Athletic Tennis Sports Running Shoes for Outdoor Hiking 
+Travel Driving [SEP] $100.0 [SEP] B09QPX97VW [SEP] Sandals For Women Gold Sandals Slippers 
+Sandy From Grease Red Shoes Strap Platforms Golf Shoes Jeans Stretch Short Sleeve Shirts 
+Midi Skirts Women Suede Pumps [SEP] $100.0 [SEP] B08HN55NGW [SEP] Prepac Entryway Shoe Cubby
+Console, 60", Drifted Gray [SEP] $280.99 [SEP] B001J6NXFS [SEP] TOMS Womens Classic Canvas 
+Slip-On,White,5.5 M US [SEP] $76.24 [SEP] B09QXF3V3X [SEP] DEUVOUM Summer Trend Mesh Shoes 
+Men's Sports Shoes Solid Color Lace-Up Sneakers Fashion All-Match Walking Shoes Outdoor 
+Hiking Shoes Non-Slip Shock-Absorbing Casual Sports Shoes [SEP] $100.0 [SEP] B01JJR8GJG 
+[SEP] Cat Footwear Men's Carnaby Canvas Fashion Sneaker [SEP] $79.95 [SEP] B07JZ5HVN6 [SEP] 
+Women's Ladies Sneakers,Limsea Fashion Classic Boots Ankle Short Leather Shoes [SEP] $6.63 
+to $8.37 [SEP] B09S3TWKSC [SEP] Womens Summer Sandals Casual Bohemia Gladiator Wedge Shoes 
+Outdoor Loafers Open Toe Sandals Buckle Sandals Hollow Out Shoes [SEP] $6.99 [SEP] 
+B09PKHJN8P [SEP] Pinsofy Underwater Ball Arm Adapter, Diving Ball Head Base Adapter High 
+Strength for Underwater Photography [SEP] $18.36
+=====================Available Actions==============================
+Available actions:
+{
+    'has_search_bar': False,
+    'clickables': [
+        'back to search',
+        'next >',
+        'b094rbns2k',
+        'b09hh6p68w',
+        'b09qpx97vw',
+        'b08hn55ngw',
+        'b001j6nxfs',
+        'b09qxf3v3x',
+        'b01jjr8gjg',
+        'b07jz5hvn6',
+        'b09s3twksc',
+        'b09pkhjn8p'
+    ]
+}
+Taking action "click[b09hh6p68w]" -> Reward = 0.0
+=====================Observation==============================
+Instruction: [SEP] Find me slim fit, machine wash women's jumpsuits, rompers & overalls with
+short sleeve, high waist, polyester spandex for daily wear with color: green stripe, and 
+size: large, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size
+[SEP] 6 [SEP] 7 [SEP] 7.5 [SEP] 8 [SEP] 8.5 [SEP] 9 [SEP] 9.5 [SEP] 10 [SEP] 10.5 [SEP] 11 
+[SEP] 11.5 [SEP] 12.5 [SEP] 13.5 [SEP] MAPOLO Hand Drawn Christmas Elements Collection Men's
+Boys Casual Walking Shoes Sneaker Lightweight Stylish Athletic Tennis Sports Running Shoes 
+for Outdoor Hiking Travel Driving [SEP] Price: $100.0 [SEP] Rating: N.A. [SEP] Description 
+[SEP] Features [SEP] Reviews [SEP] Buy Now
+=====================Available Actions==============================
+Available actions:
+{
+    'has_search_bar': False,
+    'clickables': [
+        'back to search',
+        '< prev',
+        'description',
+        'features',
+        'reviews',
+        'buy now',
+        '6',
+        '7',
+        '7.5',
+        '8',
+        '8.5',
+        '9',
+        '9.5',
+        '10',
+        '10.5',
+        '11',
+        '11.5',
+        '12.5',
+        '13.5'
+    ]
+}
+Taking action "click[11]" -> Reward = 0.0
+=====================Observation==============================
+Instruction: [SEP] Find me slim fit, machine wash women's jumpsuits, rompers & overalls with
+short sleeve, high waist, polyester spandex for daily wear with color: green stripe, and 
+size: large, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size
+[SEP] 6 [SEP] 7 [SEP] 7.5 [SEP] 8 [SEP] 8.5 [SEP] 9 [SEP] 9.5 [SEP] 10 [SEP] 10.5 [SEP] 11 
+[SEP] 11.5 [SEP] 12.5 [SEP] 13.5 [SEP] MAPOLO Hand Drawn Christmas Elements Collection Men's
+Boys Casual Walking Shoes Sneaker Lightweight Stylish Athletic Tennis Sports Running Shoes 
+for Outdoor Hiking Travel Driving [SEP] Price: $100.0 [SEP] Rating: N.A. [SEP] Description 
+[SEP] Features [SEP] Reviews [SEP] Buy Now
+=====================Available Actions==============================
+Available actions:
+{
+    'has_search_bar': False,
+    'clickables': [
+        'back to search',
+        '< prev',
+        'description',
+        'features',
+        'reviews',
+        'buy now',
+        '6',
+        '7',
+        '7.5',
+        '8',
+        '8.5',
+        '9',
+        '9.5',
+        '10',
+        '10.5',
+        '11',
+        '11.5',
+        '12.5',
+        '13.5'
+    ]
+}
+Taking action "click[back to search]" -> Reward = 0.0
+=====================Observation==============================
+WebShop [SEP] Instruction: [SEP] Find me slim fit, machine wash women's jumpsuits, rompers &
+overalls with short sleeve, high waist, polyester spandex for daily wear with color: green 
+stripe, and size: large, and price lower than 50.00 dollars [SEP] Search
+=====================Available Actions==============================
+Available actions:
+{'has_search_bar': True, 'clickables': ['search']}
+Taking action "search[shoes]" -> Reward = 0.0
+=====================Observation==============================
+Instruction: [SEP] Find me slim fit, machine wash women's jumpsuits, rompers & overalls with
+short sleeve, high waist, polyester spandex for daily wear with color: green stripe, and 
+size: large, and price lower than 50.00 dollars [SEP] Back to Search [SEP] Page 1 (Total 
+results: 39) [SEP] Next > [SEP] B094RBNS2K [SEP] Mens Running Tennis Blade Shoes Lightweight
+Casual Walking Sneakers Mesh Breathable Sport Sneakers Sheet Shoes [SEP] $27.0 [SEP] 
+B09HH6P68W [SEP] MAPOLO Hand Drawn Christmas Elements Collection Men's Boys Casual Walking 
+Shoes Sneaker Lightweight Stylish Athletic Tennis Sports Running Shoes for Outdoor Hiking 
+Travel Driving [SEP] $100.0 [SEP] B09QPX97VW [SEP] Sandals For Women Gold Sandals Slippers 
+Sandy From Grease Red Shoes Strap Platforms Golf Shoes Jeans Stretch Short Sleeve Shirts 
+Midi Skirts Women Suede Pumps [SEP] $100.0 [SEP] B08HN55NGW [SEP] Prepac Entryway Shoe Cubby
+Console, 60", Drifted Gray [SEP] $280.99 [SEP] B001J6NXFS [SEP] TOMS Womens Classic Canvas 
+Slip-On,White,5.5 M US [SEP] $76.24 [SEP] B09QXF3V3X [SEP] DEUVOUM Summer Trend Mesh Shoes 
+Men's Sports Shoes Solid Color Lace-Up Sneakers Fashion All-Match Walking Shoes Outdoor 
+Hiking Shoes Non-Slip Shock-Absorbing Casual Sports Shoes [SEP] $100.0 [SEP] B01JJR8GJG 
+[SEP] Cat Footwear Men's Carnaby Canvas Fashion Sneaker [SEP] $79.95 [SEP] B07JZ5HVN6 [SEP] 
+Women's Ladies Sneakers,Limsea Fashion Classic Boots Ankle Short Leather Shoes [SEP] $6.63 
+to $8.37 [SEP] B09S3TWKSC [SEP] Womens Summer Sandals Casual Bohemia Gladiator Wedge Shoes 
+Outdoor Loafers Open Toe Sandals Buckle Sandals Hollow Out Shoes [SEP] $6.99 [SEP] 
+B09PKHJN8P [SEP] Pinsofy Underwater Ball Arm Adapter, Diving Ball Head Base Adapter High 
+Strength for Underwater Photography [SEP] $18.36
+=====================Available Actions==============================
+Available actions:
+{
+    'has_search_bar': False,
+    'clickables': [
+        'back to search',
+        'next >',
+        'b094rbns2k',
+        'b09hh6p68w',
+        'b09qpx97vw',
+        'b08hn55ngw',
+        'b001j6nxfs',
+        'b09qxf3v3x',
+        'b01jjr8gjg',
+        'b07jz5hvn6',
+        'b09s3twksc',
+        'b09pkhjn8p'
+    ]
+}
+Taking action "click[b08hn55ngw]" -> Reward = 0.0
+=====================Observation==============================
+Instruction: [SEP] Find me slim fit, machine wash women's jumpsuits, rompers & overalls with
+short sleeve, high waist, polyester spandex for daily wear with color: green stripe, and 
+size: large, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] 
+Prepac Entryway Shoe Cubby Console, 60", Drifted Gray [SEP] Price: $280.99 [SEP] Rating: 
+N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now
+=====================Available Actions==============================
+Available actions:
+{
+    'has_search_bar': False,
+    'clickables': [
+        'back to search',
+        '< prev',
+        'description',
+        'features',
+        'reviews',
+        'buy now'
+    ]
+}
+Taking action "click[back to search]" -> Reward = 0.0
+=====================Observation==============================
+WebShop [SEP] Instruction: [SEP] Find me slim fit, machine wash women's jumpsuits, rompers &
+overalls with short sleeve, high waist, polyester spandex for daily wear with color: green 
+stripe, and size: large, and price lower than 50.00 dollars [SEP] Search
+=====================Available Actions==============================
+Available actions:
+{'has_search_bar': True, 'clickables': ['search']}
+Taking action "search[shoes]" -> Reward = 0.0
+=====================Observation==============================
+Instruction: [SEP] Find me slim fit, machine wash women's jumpsuits, rompers & overalls with
+short sleeve, high waist, polyester spandex for daily wear with color: green stripe, and 
+size: large, and price lower than 50.00 dollars [SEP] Back to Search [SEP] Page 1 (Total 
+results: 39) [SEP] Next > [SEP] B094RBNS2K [SEP] Mens Running Tennis Blade Shoes Lightweight
+Casual Walking Sneakers Mesh Breathable Sport Sneakers Sheet Shoes [SEP] $27.0 [SEP] 
+B09HH6P68W [SEP] MAPOLO Hand Drawn Christmas Elements Collection Men's Boys Casual Walking 
+Shoes Sneaker Lightweight Stylish Athletic Tennis Sports Running Shoes for Outdoor Hiking 
+Travel Driving [SEP] $100.0 [SEP] B09QPX97VW [SEP] Sandals For Women Gold Sandals Slippers 
+Sandy From Grease Red Shoes Strap Platforms Golf Shoes Jeans Stretch Short Sleeve Shirts 
+Midi Skirts Women Suede Pumps [SEP] $100.0 [SEP] B08HN55NGW [SEP] Prepac Entryway Shoe Cubby
+Console, 60", Drifted Gray [SEP] $280.99 [SEP] B001J6NXFS [SEP] TOMS Womens Classic Canvas 
+Slip-On,White,5.5 M US [SEP] $76.24 [SEP] B09QXF3V3X [SEP] DEUVOUM Summer Trend Mesh Shoes 
+Men's Sports Shoes Solid Color Lace-Up Sneakers Fashion All-Match Walking Shoes Outdoor 
+Hiking Shoes Non-Slip Shock-Absorbing Casual Sports Shoes [SEP] $100.0 [SEP] B01JJR8GJG 
+[SEP] Cat Footwear Men's Carnaby Canvas Fashion Sneaker [SEP] $79.95 [SEP] B07JZ5HVN6 [SEP] 
+Women's Ladies Sneakers,Limsea Fashion Classic Boots Ankle Short Leather Shoes [SEP] $6.63 
+to $8.37 [SEP] B09S3TWKSC [SEP] Womens Summer Sandals Casual Bohemia Gladiator Wedge Shoes 
+Outdoor Loafers Open Toe Sandals Buckle Sandals Hollow Out Shoes [SEP] $6.99 [SEP] 
+B09PKHJN8P [SEP] Pinsofy Underwater Ball Arm Adapter, Diving Ball Head Base Adapter High 
+Strength for Underwater Photography [SEP] $18.36
+=====================Available Actions==============================
+Available actions:
+{
+    'has_search_bar': False,
+    'clickables': [
+        'back to search',
+        'next >',
+        'b094rbns2k',
+        'b09hh6p68w',
+        'b09qpx97vw',
+        'b08hn55ngw',
+        'b001j6nxfs',
+        'b09qxf3v3x',
+        'b01jjr8gjg',
+        'b07jz5hvn6',
+        'b09s3twksc',
+        'b09pkhjn8p'
+    ]
+}
+Taking action "click[b09qpx97vw]" -> Reward = 0.0
+=====================Observation==============================
+Instruction: [SEP] Find me slim fit, machine wash women's jumpsuits, rompers & overalls with
+short sleeve, high waist, polyester spandex for daily wear with color: green stripe, and 
+size: large, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] 
+Sandals For Women Gold Sandals Slippers Sandy From Grease Red Shoes Strap Platforms Golf 
+Shoes Jeans Stretch Short Sleeve Shirts Midi Skirts Women Suede Pumps [SEP] Price: $100.0 
+[SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now
+=====================Available Actions==============================
+Available actions:
+{
+    'has_search_bar': False,
+    'clickables': [
+        'back to search',
+        '< prev',
+        'description',
+        'features',
+        'reviews',
+        'buy now'
+    ]
+}
+Taking action "click[buy now]" -> Reward = 0.1111111111111111
