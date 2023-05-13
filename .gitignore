@@ -18,4 +18,5 @@ __pycache__/
 webshop/baseline_models/data/
 webshop/baseline_models/ckpts/
 
+.api_keys.txt
 .ipynb_checkpoints/*
