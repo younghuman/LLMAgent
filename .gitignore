@@ -13,6 +13,7 @@ webshop/search_engine/indexes*
 webshop/search_engine/resources*
 webshop/transfer/flagged
 webshop/user_session_logs/
+__pycache__/
 
 webshop/baseline_models/data/
 webshop/baseline_models/ckpts/

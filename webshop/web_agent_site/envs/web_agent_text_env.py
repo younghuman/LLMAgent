@@ -301,8 +301,8 @@ class SimServer:
         self.show_attrs = show_attrs
 
         # Fix outcome for random shuffling of goals
-        random.seed(233)
-        random.shuffle(self.goals)
+        # random.seed(233)
+        # random.shuffle(self.goals)
 
         # Apply `filter_goals` parameter if exists to select speific goal(s)
         if filter_goals is not None:

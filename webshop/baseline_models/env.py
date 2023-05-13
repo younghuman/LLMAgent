@@ -34,7 +34,7 @@ class WebEnv:
         else:
             self.goal_idxs = range(len(self.env.server.goals))
             
-        print(self.goal_idxs)
+        print(f"Total huamn goals considered： {self.goal_idxs}")
 
         self.steps = 0
         self.step_limit = args.step_limit
