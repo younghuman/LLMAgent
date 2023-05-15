@@ -68,7 +68,7 @@ class AutoGPTPrompt(BaseChatPromptTemplate, BaseModel):
             historical_messages = [message] + historical_messages
             used_tokens += message_tokens
         input_message = HumanMessage(content=kwargs["user_input"])
-        messages: List[BaseMessage] = [base_prompt, time_prompt, memory_message]
+        messages: List[BaseMessage] = [base_prompt, memory_message]
         messages += historical_messages
         messages.append(input_message)
         return messages

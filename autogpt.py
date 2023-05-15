@@ -37,7 +37,8 @@ class AutoGPT:
         output_parser: BaseAutoGPTOutputParser,
         tools: List[BaseTool],
         feedback_tool: Optional[HumanInputRun] = None,
-        loop_limit: int = 100
+        loop_limit: int = 100,
+        init_obs: str = None
     ):
         self.ai_name = ai_name
         self.memory = memory
@@ -48,6 +49,7 @@ class AutoGPT:
         self.tools = tools
         self.feedback_tool = feedback_tool
         self.loop_limit = loop_limit
+        self.init_obs = init_obs
 
     @classmethod
     def from_llm_and_tools(
@@ -89,6 +91,8 @@ class AutoGPT:
         while loop_count < self.loop_limit:
             # Discontinue if continuous limit is reached
             loop_count += 1
+            if self.init_obs and loop_count == 1:
+                self.full_message_history.append(SystemMessage(content=self.init_obs))
 
             # Send message to AI, get response
             assistant_reply = self.chain.run(
@@ -100,6 +104,7 @@ class AutoGPT:
 
             # Print Assistant thoughts
             loop_msg = f"loop number:{loop_count}"
+            print(loop_msg)
             print(assistant_reply)
             self.full_message_history.append(HumanMessage(content=user_input))
             self.full_message_history.append(AIMessage(content=assistant_reply))
