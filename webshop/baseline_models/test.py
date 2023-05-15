@@ -53,8 +53,8 @@ def predict(obs, info, model, softmax=False, rule=False, bart_model=None):
         'action_input_ids': action_encodings['input_ids'],
         'action_attention_mask': action_encodings['attention_mask'],
         'sizes': len(valid_acts),
-         #'images': info['image_feat'].tolist(),
-         'images': [],
+        'images': info['image_feat'].tolist(),
+         #'images': [],
         'labels': 0
     }
     batch = data_collator([batch])
@@ -86,11 +86,11 @@ def episode(model, idx=None, verbose=False, softmax=False, rule=False, bart_mode
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Finetune a transformers model on a text classification task")
-    parser.add_argument("--model_path", type=str, default="./ckpts/web_click/epoch_9/model.pth", help="Where to store the final model.")
+    parser.add_argument("--model_path", type=str, default="./ckpts/web_click_image/epoch_9/model.pth", help="Where to store the final model.")
     parser.add_argument("--mem", type=int, default=0, help="State with memory")
     parser.add_argument("--bart_path", type=str, default='./ckpts/web_search/checkpoint-3600', help="BART model path if using it")
     parser.add_argument("--bart", type=bool, default=True, help="Flag to specify whether to use bart or not (default: True)")
-    parser.add_argument("--image", type=bool, default=False, help="Flag to specify whether to use image or not (default: True)")
+    parser.add_argument("--image", type=bool, default=True, help="Flag to specify whether to use image or not (default: True)")
     parser.add_argument("--softmax", type=bool, default=True, help="Flag to specify whether to use softmax sampling or not (default: True)")
 
     args = parser.parse_args()

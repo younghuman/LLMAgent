@@ -296,7 +296,7 @@ def parse_args():
     parser.add_argument(
         "--num_warmup_steps", type=int, default=0, help="Number of steps for the warmup in the lr scheduler."
     )
-    parser.add_argument("--output_dir", type=str, default="./ckpts/web_click",
+    parser.add_argument("--output_dir", type=str, default="./ckpts/web_click_image",
                         help="Where to store the final model.")
     parser.add_argument("--seed", type=int, default=None,
                         help="A seed for reproducible training.")

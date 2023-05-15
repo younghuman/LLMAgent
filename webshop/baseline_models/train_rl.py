@@ -199,7 +199,7 @@ def parse_args():
     parser.add_argument('--embedding_dim', default=128, type=int)
     parser.add_argument('--hidden_dim', default=128, type=int)
     parser.add_argument('--grad_encoder', default=1, type=int)
-    parser.add_argument('--get_image', default=0, type=int, help='use image in models')
+    parser.add_argument('--get_image', default=1, type=int, help='use image in models')
 
     # env
     parser.add_argument('--num', default=None, type=int)
