@@ -122,7 +122,7 @@ class AutoGPT:
                 tool_name, tool_input = action.replace("]", "").split("[")
                 action = f"{tool_name} with '{tool_input}'"
                 user_input = f"Here's one suggestion for the command: {action}.\n" +\
-                              "Please use your best judgement and feel free to disagree with the example. " + user_input
+                              "Please use this suggestion as a reference and make your own judgement. " + user_input
             
             print(loop_msg)
             print(user_input)

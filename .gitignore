@@ -19,6 +19,7 @@ webshop/baseline_models/ckpts_downloaded/
 webshop/baseline_models/data/
 webshop/baseline_models/ckpts/
 webshop/web_agent_site/__pycache__/
+webshop/search_engine/*
 
 .api_keys.txt
 .ipynb_checkpoints/*
