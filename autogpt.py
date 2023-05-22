@@ -45,7 +45,8 @@ class AutoGPT:
         feedback_tool: Optional[HumanInputRun] = None,
         loop_limit: int = 100,
         init_obs: str = None,
-        expert_predictor: ExpertActionPredictor = None
+        expert_predictor: ExpertActionPredictor = None,
+        top_k: int = 1
     ):
         self.ai_name = ai_name
         self.memory = memory
@@ -58,6 +59,7 @@ class AutoGPT:
         self.loop_limit = loop_limit
         self.init_obs = init_obs
         self.expert_predictor = expert_predictor
+        self.top_k = top_k
 
     @classmethod
     def from_llm_and_tools(
@@ -118,11 +120,20 @@ class AutoGPT:
                    info['image_feat'] = torch.tensor(info['image_feat'])
                 cur_obs = cur_obs.replace("=Observation=\n", "")
                 # print("########", cur_obs, info)
-                action = self.expert_predictor.predict(cur_obs, info)
-                tool_name, tool_input = action.replace("]", "").split("[")
-                action = f"{tool_name} with '{tool_input}'"
-                user_input = f"Here's one suggestion for the command: {action}.\n" +\
-                              "Please use this suggestion as a reference and make your own judgement. " + user_input
+                action = self.expert_predictor.predict(cur_obs, info, top_k=self.top_k)
+                if self.top_k == 1:
+                    tool_name, tool_input = action.replace("]", "").split("[")
+                    action = f"{tool_name} with '{tool_input}'"
+                    user_input = f"Here's one suggestion for the command: {action}.\n" +\
+                                "Please use this suggestion as a reference and make your own judgement. " + user_input
+                else:
+                    action_list = []
+                    for a in action:
+                        tool_name, tool_input = a.replace("]", "").split("[")
+                        action_list.append(f"{tool_name} with '{tool_input}'")
+                    action = ", ".join(action_list)
+                    user_input = f"Here's a few suggestions for the command: {action}.\n" +\
+                                "Please use this suggestion as a reference and make your own judgement. " + user_input
             
             print(loop_msg)
             print(user_input)

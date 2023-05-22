@@ -25,7 +25,7 @@ def bart_predict(input, model, skip_special_tokens=True, **kwargs):
     return bart_tokenizer.batch_decode(output.tolist(), skip_special_tokens=skip_special_tokens)
 
 
-def predict(obs, info, model, softmax=False, rule=False, bart_model=None):
+def predict(obs, info, model, softmax=False, rule=False, bart_model=None, top_k = 1):
     valid_acts = info['valid']
     if valid_acts[0].startswith('search['):
         if bart_model is None:
@@ -34,8 +34,12 @@ def predict(obs, info, model, softmax=False, rule=False, bart_model=None):
             goal = process_goal(obs)
             query = bart_predict(goal, bart_model, num_return_sequences=5, num_beams=5)
             # query = random.choice(query)  # in the paper, we sample from the top-5 generated results.
-            query = query[0]  #... but use the top-1 generated search will lead to better results than the paper results.
-            return f'search[{query}]'
+            if top_k==1:
+                query = query[0]  #... but use the top-1 generated search will lead to better results than the paper results.
+                return f'search[{query}]'
+            else:
+                queries = query[:top_k]
+                return list(f'search[{query}]' for query in queries)
             
     if rule:
         item_acts = [act for act in valid_acts if act.startswith('click[item - ')]
@@ -61,11 +65,26 @@ def predict(obs, info, model, softmax=False, rule=False, bart_model=None):
     # make batch cuda
     batch = {k: v.cuda() for k, v in batch.items()}
     outputs = model(**batch)
-    if softmax:
-        idx = torch.multinomial(F.softmax(outputs.logits[0], dim=0), 1)[0].item()
+    if top_k==1:
+        if softmax:
+            idx = torch.multinomial(F.softmax(outputs.logits[0], dim=0), 1)[0].item()
+        else:
+            idx = outputs.logits[0].argmax(0).item()
+        return valid_acts[idx]
     else:
-        idx = outputs.logits[0].argmax(0).item()
-    return valid_acts[idx]
+        res = []
+        if softmax:
+            idx_list = torch.multinomial(F.softmax(outputs.logits[0], dim=0), top_k, replacement=True).tolist()
+            for i in range(top_k):
+                idx = idx_list[i]
+                res.append(valid_acts[idx])
+        else:
+            _, idx_list = outputs.logits[0].topk(top_k)
+            idx_list = idx_list.tolist()
+            for i in range(top_k):
+                idx = idx_list[i]
+                res.append(valid_acts[idx])
+        return res
 
 
 
@@ -79,8 +98,8 @@ def episode(model, idx=None, verbose=False, softmax=False, rule=False, bart_mode
             print(action)
         obs, reward, done, info = env.step(action)
         if done:
-            return reward
-    return 0
+            return reward, 1
+    return 0, 0
 
 
 
@@ -126,11 +145,12 @@ if __name__ == "__main__":
     model.load_state_dict(torch.load(args.model_path), strict=False)
     print('bert il model loaded', args.model_path)
 
-    print('idx | reward (model), reward (rule)')
+    print('idx | reward (model), reward (rule), purchase (model), purchase (rule)')
     scores_softmax, scores_rule = [], []
-    for i in range(500):
-        score_softmax, score_rule = episode(model, idx=i, softmax=args.softmax, bart_model=bart_model), episode(model, idx=i, rule=True)
-        print(i, '|', score_softmax * 10, score_rule * 10)  # env score is 0-10, paper is 0-100
+    for i in range(40):
+        score_softmax, purchase_softmax = episode(model, idx=i, softmax=args.softmax, bart_model=bart_model)
+        score_rule, purchase_rule = episode(model, idx=i, rule=True)
+        print(i, '|', score_softmax * 10, score_rule * 10, purchase_softmax, purchase_rule)  # env score is 0-10, paper is 0-100
         scores_softmax.append(score_softmax)
         scores_rule.append(score_rule)
     score_softmax = sum(scores_softmax) / len(scores_softmax)
