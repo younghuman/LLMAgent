@@ -21,5 +21,7 @@ webshop/baseline_models/ckpts/
 webshop/web_agent_site/__pycache__/
 webshop/search_engine/*
 
+webshop/baseline_models/full_autogpt_log/
+webshop/baseline_models/full_autogpt_log_alfworld/
 .api_keys.txt
 .ipynb_checkpoints/*

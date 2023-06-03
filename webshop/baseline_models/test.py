@@ -25,7 +25,7 @@ def bart_predict(input, model, skip_special_tokens=True, **kwargs):
     return bart_tokenizer.batch_decode(output.tolist(), skip_special_tokens=skip_special_tokens)
 
 
-def predict(obs, info, model, softmax=False, rule=False, bart_model=None, top_k = 1):
+def predict(obs, info, model, softmax=False, rule=False, bart_model=None, top_k = 1, random=False):
     valid_acts = info['valid']
     if valid_acts[0].startswith('search['):
         if bart_model is None:
@@ -66,7 +66,9 @@ def predict(obs, info, model, softmax=False, rule=False, bart_model=None, top_k 
     batch = {k: v.cuda() for k, v in batch.items()}
     outputs = model(**batch)
     if top_k==1:
-        if softmax:
+        if random:
+            idx = torch.randint(0, len(outputs.logits[0]), (1,))[0].item()
+        elif softmax:
             idx = torch.multinomial(F.softmax(outputs.logits[0], dim=0), 1)[0].item()
         else:
             idx = outputs.logits[0].argmax(0).item()

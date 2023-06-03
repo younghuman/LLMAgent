@@ -46,7 +46,8 @@ class AutoGPT:
         loop_limit: int = 100,
         init_obs: str = None,
         expert_predictor: ExpertActionPredictor = None,
-        top_k: int = 1
+        top_k: int = 1,
+        random: bool = False
     ):
         self.ai_name = ai_name
         self.memory = memory
@@ -60,6 +61,7 @@ class AutoGPT:
         self.init_obs = init_obs
         self.expert_predictor = expert_predictor
         self.top_k = top_k
+        self.random = random
 
     @classmethod
     def from_llm_and_tools(
@@ -120,7 +122,8 @@ class AutoGPT:
                    info['image_feat'] = torch.tensor(info['image_feat'])
                 cur_obs = cur_obs.replace("=Observation=\n", "")
                 # print("########", cur_obs, info)
-                action = self.expert_predictor.predict(cur_obs, info, top_k=self.top_k)
+
+                action = self.expert_predictor.predict(cur_obs, info, top_k=self.top_k, random=self.random)
                 if self.top_k == 1:
                     tool_name, tool_input = action.replace("]", "").split("[")
                     action = f"{tool_name} with '{tool_input}'"

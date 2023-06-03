@@ -6,6 +6,6 @@ class ExpertActionPredictor():
         self.softmax = softmax
         self.rule = rule
     
-    def predict(self, obs, info, top_k=1):
-        return self.predict_func(obs, info, self.bert_model, softmax=self.softmax, rule=self.rule, bart_model=self.bart_model, top_k=top_k)
+    def predict(self, obs, info, top_k=1, random=False):
+        return self.predict_func(obs, info, self.bert_model, softmax=self.softmax, rule=self.rule, bart_model=self.bart_model, top_k=top_k, random=random)
 
