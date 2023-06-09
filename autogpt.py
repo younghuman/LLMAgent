@@ -115,28 +115,35 @@ class AutoGPT:
             elif result:
                 pass
                 #print(result)
-            
+
             if cur_obs and cur_info and self.expert_predictor:
                 info = json.loads(cur_info)
-                if 'image_feat' in info and info['image_feat'] is not None:
-                   info['image_feat'] = torch.tensor(info['image_feat'])
-                cur_obs = cur_obs.replace("=Observation=\n", "")
-                # print("########", cur_obs, info)
-
-                action = self.expert_predictor.predict(cur_obs, info, top_k=self.top_k, random=self.random)
-                if self.top_k == 1:
-                    tool_name, tool_input = action.replace("]", "").split("[")
-                    action = f"{tool_name} with '{tool_input}'"
+                ## Dummy controller for ALFWorld Observation String
+                if 'alfworld_ob' in info and info['alfworld_ob'] is not None:
+                    alfworld_ob = info.pop('alfworld_ob')
+                    action = self.expert_predictor.predict(alfworld_ob, info)
                     user_input = f"Here's one suggestion for the command: {action}.\n" +\
                                 "Please use this suggestion as a reference and make your own judgement. " + user_input
                 else:
-                    action_list = []
-                    for a in action:
-                        tool_name, tool_input = a.replace("]", "").split("[")
-                        action_list.append(f"{tool_name} with '{tool_input}'")
-                    action = ", ".join(action_list)
-                    user_input = f"Here's a few suggestions for the command: {action}.\n" +\
-                                "Please use this suggestion as a reference and make your own judgement. " + user_input
+                    if 'image_feat' in info and info['image_feat'] is not None:
+                        info['image_feat'] = torch.tensor(info['image_feat'])
+                    cur_obs = cur_obs.replace("=Observation=\n", "")
+                    # print("########", cur_obs, info)
+
+                    action = self.expert_predictor.predict(cur_obs, info, top_k=self.top_k, random=self.random)
+                    if self.top_k == 1:
+                        tool_name, tool_input = action.replace("]", "").split("[")
+                        action = f"{tool_name} with '{tool_input}'"
+                        user_input = f"Here's one suggestion for the command: {action}.\n" +\
+                                    "Please use this suggestion as a reference and make your own judgement. " + user_input
+                    else:
+                        action_list = []
+                        for a in action:
+                            tool_name, tool_input = a.replace("]", "").split("[")
+                            action_list.append(f"{tool_name} with '{tool_input}'")
+                        action = ", ".join(action_list)
+                        user_input = f"Here's a few suggestions for the command: {action}.\n" +\
+                                    "Please use this suggestion as a reference and make your own judgement. " + user_input
             
             print(loop_msg)
             print(user_input)
